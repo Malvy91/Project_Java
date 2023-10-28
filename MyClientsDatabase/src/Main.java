@@ -1,19 +1,19 @@
 
 public class Main {
     public static void main(String[] args) {
-        Clients client = new Clients();
-        ClientNotFoundException exception = new ClientNotFoundException();
+        Client client = new Client();
+        Clients clients = client;
+        
+        clients.createNewClient("Malwina", "Wajdzik");
+        clients.createNewClient("Krysia", "Tomczak");
+        clients.createNewClient("Aleksandra", "Wiktoria");
+        clients.activatePremiumAccount("KT1");
+        clients.getClientFullName("KT1");
+        clients.getClientCreationDate("KT1");
+        clients.isPremiumClient("KT1");
+        clients.isPremiumClient("MW0");
+        clients.getNumberOfClients();
+        clients.getNumberOfPremiumClients();
 
-        client.createNewClient("Malwina", "Wajdzik");
-        client.createNewClient("Krysia", "Tomczak");
-        client.createNewClient("Aleksandra", "Wiktoria");
-        client.findClientPositionInArrayById("KT1");
-        client.activatePremiumAccount("KT1");
-        client.getClientFullName("KT1");
-        client.getClientCreationDate("KT1");
-        client.isPremiumClient("KT1");
-        client.isPremiumClient("MW0");
-        client.getNumberOfClients();
-        client.getNumberOfPremiumClients();
     }
 }
