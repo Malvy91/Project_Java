@@ -40,8 +40,9 @@ public class Client implements Clients{
         return creationDate;
     }
     // settery
-    public void setPremium( int clientPositionInArray){
-        ClientsArray[clientPositionInArray].isPremium = true;
+    public void setIsPremium( int clientPositionInArray, boolean isPremium){
+
+        ClientsArray[clientPositionInArray].isPremium = isPremium;
     }
     public void setFirstName( int clientPositionInArray, String firstName){
         ClientsArray[clientPositionInArray].firstName = firstName;
@@ -123,7 +124,7 @@ public class Client implements Clients{
         if (getPremium(clientPositionInArray)) {
             System.out.println("Twój klient " + clientId + " posiada już pakiet premium.");
         }
-        setPremium(clientPositionInArray);
+        setIsPremium(clientPositionInArray, true);
         System.out.println("Czy klient " + clientId + " posiada premium? " + getPremium(clientPositionInArray));
         return clientId;
     }
