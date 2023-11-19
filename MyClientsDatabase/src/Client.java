@@ -3,11 +3,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Client {
-    public String firstName;
-    public String lastName;
-    public String clientId;
-    public boolean isPremium;
-    public LocalDate creationDate;
+    private String firstName;
+    private String lastName;
+    private String clientId;
+    private boolean isPremium;
+    private LocalDate creationDate;
     Map<String, Client> clients = new HashMap<String, Client>();
     // client's objects' constructor
     Client(){
@@ -47,7 +47,7 @@ public class Client {
         clients.get(clientId).isPremium = isPremium;
     }
 
-    public Client createClientAccount(String firstName, String lastName, String clientId, LocalDate creationDate){
+    public Client createClientObject(String firstName, String lastName, String clientId, LocalDate creationDate){
         return new Client(firstName, lastName, clientId, creationDate);
     }
 }
