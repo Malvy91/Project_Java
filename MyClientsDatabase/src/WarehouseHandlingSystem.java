@@ -5,62 +5,39 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/* WarehouseHandlingSystem implements Clients and Warehouse interfaces, what means that
+WarehouseHandlingSystem contains the methods implementation for both interfaces.
+ */
 public class WarehouseHandlingSystem implements Clients, Warehouse{
-    public String firstName;
-    public String lastName;
-    public String clientId;
-    public boolean isPremium;
+    private  Client Client = new Client();
+    // declaration of variable, where we will deliver client id
+    private String clientId;
+    // declaration of variable, where we will deliver creation date
     public LocalDate creationDate;
-    Map<String, WarehouseHandlingSystem> clients = new HashMap<String, WarehouseHandlingSystem>();
+    // declaration of map clientsMap, that contains data about metals and its mass that is delivered by clients to warehouse
     Map<String, Map<SupportedMetalType, Double>> clientsMap = new HashMap<String, Map<SupportedMetalType, Double>>();
+    // declaration of max size of warehouse
     double warehouseMaxSize = 10000; //m3
     WarehouseHandlingSystem(){
     }
-    // Clients implementation
-    // utworzenie konstruktora dla obiektu klienta
-    WarehouseHandlingSystem(String firstName, String lastName, String clientId, LocalDate creationDate){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.clientId = clientId;
-        this.isPremium = false;
-        this.creationDate = creationDate;
-    }
-    // gettery
-    public boolean getPremium(String clientId){
-        return clients.get(clientId).isPremium;
-    }
-    public String getClientId(String clientId){
-        return clients.get(clientId).clientId;
-    }
-    public String getFirstName(String clientId){
-        return clients.get(clientId).firstName;
-    }
-    public String getLastName(String clientId){
-        return clients.get(clientId).lastName;
-    }
-    public LocalDate getCreationDate(String clientId){
-        return clients.get(clientId).creationDate;
-    }
-    // settery
-    public void setIsPremium(String clientId, boolean isPremium){
-        clients.get(clientId).isPremium = isPremium;
-    }
-    // assercje i weryfikacje
     public void assertString( String whatString, String string){
         if (string.isEmpty()){
-            System.out.println("Proszę podać " + whatString + ".");
+            System.out.println("Please enter " + whatString + ".");
             System. exit(0);
         }
     }
-    // finder
+    // method to verify if client has the account in base
     public void verifyClientInMapById(String clientId) {
-        if (!clients.containsKey(clientId)){
-            System.out.println(clients.containsKey(clientId));
-            System.out.println(clients.keySet());
-            throw new ClientNotFoundException("Nie znaleziono klienta w bazie danych.");
+        if (!Client.clients.containsKey(clientId)){
+            throw new ClientNotFoundException("Client not fount in database.");
         }
     }
-    // generatory i tworzenie nowej tablicy
+    /* method to generate the client Id
+    - clientId format [XYnum];
+        X - first letter of name
+        Y - first letter of surname
+        num - assigned number to client in hex
+     */
     public String generateClientId(String firstName, String lastName, int freeMapIndex){
         String hexValue = Integer.toHexString(freeMapIndex);
         char charIndexFirstName = firstName.charAt(0);
@@ -70,70 +47,68 @@ public class WarehouseHandlingSystem implements Clients, Warehouse{
         clientId = indexFirstName + indexLastName + hexValue;
         return clientId;
     }
-    // metody głowne
+    // Clients interface implementation
     @Override
     public String createNewClient(String firstName, String lastName){
-        assertString("imię", firstName);
-        assertString("nazwisko", lastName);
-        int freeMapIndex = clients.size();
+        assertString("name", firstName);
+        assertString("surname", lastName);
+        int freeMapIndex = Client.clients.size();
         clientId = generateClientId(firstName, lastName, freeMapIndex);
         creationDate = LocalDate.now();
-        WarehouseHandlingSystem warehouseHandlingSystem = new WarehouseHandlingSystem(firstName, lastName, clientId, creationDate);
-        clients.put(clientId, warehouseHandlingSystem);
-        System.out.println(clients.keySet());
+
+        Client clientObject = Client.createClientAccount(firstName, lastName, clientId, creationDate);
+        Client.clients.put(clientId, clientObject);
         return clientId;
     }
     @Override
     public String activatePremiumAccount(String clientId) {
         verifyClientInMapById(clientId);
-        if (getPremium(clientId)) {
-            System.out.println("Twój klient " + clientId + " posiada już pakiet premium.");
+        if (Client.getPremium(clientId)) {
+            System.out.println("Your client " + clientId + " has premium status.");
         } else {
-            setIsPremium(clientId, true);
+            Client.setIsPremium(clientId, true);
         }
-        System.out.println("Czy klient " + clientId + " posiada premium? " + getPremium(clientId));
         return clientId;
     }
     @Override
     public String getClientFullName(String clientId) {
         verifyClientInMapById(clientId);
-        String clientFirstName = getFirstName(clientId);
-        String clientLastName = getLastName(clientId);
+        String clientFirstName = Client.getFirstName(clientId);
+        String clientLastName = Client.getLastName(clientId);
         String clientFirstAndLastName = clientFirstName + " " + clientLastName;
-        System.out.println("Imię i nazwisko klienta " + clientId + ": " + clientFirstAndLastName );
+        System.out.println("Clients name and surname: " + clientId + ": " + clientFirstAndLastName );
         return clientFirstAndLastName;
     }
     @Override
     public LocalDate getClientCreationDate(String clientId) {
         verifyClientInMapById(clientId);
-        LocalDate creationDate = getCreationDate(clientId);
-        System.out.println("Data utworzenia wpisu o kliencie " + clientId + ": " + creationDate );
+        LocalDate creationDate = Client.getCreationDate(clientId);
         return creationDate;
     }
     @Override
     public boolean isPremiumClient(String clientId) {
         verifyClientInMapById(clientId);
-        boolean isPremium = getPremium(clientId);
+        boolean isPremium = Client.getPremium(clientId);
         if (isPremium){
-            System.out.println("Klient " + clientId + " ma status premium." );
+            System.out.println("Client " + clientId + " has premium status." );
         } else {
-            System.out.println("Klient " + clientId + " nie ma jeszcze statusu premium. Zaproponuj zmiane warunków pakietu." );
+            System.out.println("Client " + clientId + " has no premium status, yet. Please, suggest him/her available packages." );
         }
         return isPremium;
     }
     @Override
     public int getNumberOfClients(){
-        return clients.size();
+        return Client.clients.size();
     }
     @Override
     public int getNumberOfPremiumClients(){
         int premiumClients= 0;
-        for (String i : clients.keySet()) {
-            if (getPremium(i)) {
+        for (String i : Client.clients.keySet()) {
+            if (Client.getPremium(i)) {
                 premiumClients++;
             }
         }
-        System.out.println("Liczba klientów premium w naszej bazie wynosi " + premiumClients );
+        System.out.println("There are " + premiumClients + " clients in database.");
         return premiumClients;
         }
 
@@ -172,7 +147,7 @@ public class WarehouseHandlingSystem implements Clients, Warehouse{
             case COPPER, TIN, IRON, LEAD, SILVER, TUNGSTEN, GOLD, PLATINUM:
                 break;
             default:
-                throw new ProhibitedMetalTypeException("Metal nie może być przyjęty do magazynu");
+                throw new ProhibitedMetalTypeException("Our warehouse does not support that metal type.");
         }
     }
     public void addMetalIngot(String clientId, SupportedMetalType metalType, double mass){
@@ -190,7 +165,7 @@ public class WarehouseHandlingSystem implements Clients, Warehouse{
             Map<SupportedMetalType, Double> newMetalTypesToMassMap = new HashMap<SupportedMetalType, Double>();
             newMetalTypesToMassMap.put(metalType, mass);
             clientsMap.put(clientId, newMetalTypesToMassMap);
-            System.out.println(clients);
+            System.out.println(Client.clients);
         } else {
             if (metalTypesToMassMap.containsKey(metalType)){
                 totalMass = metalTypesToMassMap.get(metalType) + mass;
