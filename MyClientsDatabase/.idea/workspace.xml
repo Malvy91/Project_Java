@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="75659680-3761-462b-95f9-ab163310f52e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyClientsDatabase.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/ClientIdGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/ClientNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/Clients.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/FullWarehouseException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/ProhibitedMetalTypeException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/SupportedMetalType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/VerifyCorrectness$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/VerifyCorrectness.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/Warehouse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/WarehouseHandlingSystem$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyClientsDatabase/WarehouseHandlingSystem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientIdGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Clients.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FullWarehouseException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProhibitedMetalTypeException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SupportedMetalType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VerifyCorrectness.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Warehouse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WarehouseHandlingSystem.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2XLIMXi9AQRbgUQmglum4T0BYoX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/48793/Desktop/Cyberbezpieczeństwo/Studia/Programowanie obiektowe i bazy danych_Jakub Batogowski/Project_Java/WarehouseSystem"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="75659680-3761-462b-95f9-ab163310f52e" name="Changes" comment="" />
+      <created>1698401889276</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698401889276</updated>
+    </task>
+    <servers />
+  </component>
+</project>
