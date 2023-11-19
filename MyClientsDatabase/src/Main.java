@@ -3,6 +3,8 @@ public class Main {
     public static void main(String[] args) {
         Client client = new Client();
         Clients clients = client;
+        WarehouseManagement warehouseManagement = new WarehouseManagement();
+        Warehouse warehouse = warehouseManagement;
         
         clients.createNewClient("Malwina", "Wajdzik");
         clients.createNewClient("Krysia", "Tomczak");
@@ -14,6 +16,8 @@ public class Main {
         clients.isPremiumClient("MW0");
         clients.getNumberOfClients();
         clients.getNumberOfPremiumClients();
+
+        warehouse.
 
     }
 }
