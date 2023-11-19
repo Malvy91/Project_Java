@@ -3,8 +3,8 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-public class WarehouseManagement implements Warehouse {
-    Client client = new Client();
+public class WarehouseManagement {
+    WarehouseHandlingSystem warehouseHandlingSystem = new WarehouseHandlingSystem();
     WarehouseManagement(){
     }
     Map<String, Map<SupportedMetalType, Double>> clientsMap = new HashMap<String, Map<SupportedMetalType, Double>>();
@@ -50,7 +50,7 @@ public class WarehouseManagement implements Warehouse {
         Map<SupportedMetalType, Double> metalTypesToMassMap;
         double totalMass;
 
-        client.verifyClientInMapById(clientId);
+        warehouseHandlingSystem.verifyClientInMapById(clientId);
         verifyWarehouseCapacity(mass);
         verifyMetalCorrectness(metalType);
 
